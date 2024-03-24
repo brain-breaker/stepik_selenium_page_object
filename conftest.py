@@ -22,7 +22,6 @@ def browser(request):
         options.add_experimental_option('prefs', {'intl.accept_languages': user_language})
         service = ChromeService(ChromeDriverManager().install())
         browser_object = webdriver.Chrome(options=options, service=service)
-        browser_object.implicitly_wait(20)  # задаем неявные ожидания в 20 сек., чтобы избежать ложного падения теста
     elif browser_name == 'firefox':
         print('\nstart firefox browser for test...')
         install_dir = '/snap/firefox/current/usr/lib/firefox'
