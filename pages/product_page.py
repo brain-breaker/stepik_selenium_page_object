@@ -21,11 +21,11 @@ class ProductPage(BasePage):
         return self.browser.find_element(*ProductPageLocators.BOOK_PRICE).text
 
     def should_be_success_message_and_correct_book(self, correct_book):
-        assert (correct_book in
+        assert (correct_book ==
                 self.browser.find_element(*ProductPageLocators.MESSAGE_BOOK_NAME).text), \
             'Book is not correct'
 
     def should_be_success_message_and_correct_price(self, correct_price):
-        assert (correct_price in
+        assert (correct_price ==
                 self.browser.find_element(*ProductPageLocators.MESSAGE_BOOK_PRICE).text), \
             'Price is not correct'

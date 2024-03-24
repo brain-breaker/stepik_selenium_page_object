@@ -1,11 +1,12 @@
 from .pages.product_page import ProductPage
-from pytest import mark
+from pytest import mark, param
 
 
 @mark.basket_guest
 class TestBasketFromProductPage:
-    def test_guest_can_add_product_to_basket(self, browser):
-        link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019'
+    @mark.parametrize('num_offer', [*range(7), param(7, marks=mark.xfail), *range(8, 10)])
+    def test_guest_can_add_product_to_basket(self, browser, num_offer):
+        link = f'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{num_offer}'
         page = ProductPage(browser, link)
         page.open()
         page.should_be_add_to_basket_button()  # проверяем, что есть кнопка добавления в корзину

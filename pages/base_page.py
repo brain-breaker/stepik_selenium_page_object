@@ -25,12 +25,12 @@ class BasePage:
         answer = str(log(abs((12 * sin(float(x))))))
         alert.send_keys(answer)
         alert.accept()
-        try:
-            alert = self.browser.switch_to.alert
-            alert_text_code = alert.text.split()[-1]
-            print(f'Your code: {alert_text_code}')
-            alert.accept()
-        except NoAlertPresentException:
-            print('No second alert presented')
-            return False
+        # try:
+        #     alert = self.browser.switch_to.alert
+        #     alert_text_code = alert.text.split()[-1]
+        #     print(f'Your code: {alert_text_code}')
+        #     alert.accept()
+        # except NoAlertPresentException:
+        #     print('No second alert presented')
+        #     return False
         return True
