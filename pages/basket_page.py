@@ -10,4 +10,4 @@ class BasketPage(BasePage):
 
     def should_not_be_products(self):
         assert self.is_not_element_present(*BasketPageLocators.PRODUCT_IN_BASKET), \
-            "Product in basket, but should not be"
+            'Product in basket, but should not be'

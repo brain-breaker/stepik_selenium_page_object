@@ -29,7 +29,7 @@ def browser(request):
         binary_loc = path.join(install_dir, 'firefox')
         service = FirefoxService(driver_loc)
         options = webdriver.FirefoxOptions()
-        options.set_preference("intl.accept_languages", user_language)
+        options.set_preference('intl.accept_languages', user_language)
         options.binary_location = binary_loc
         browser_object = webdriver.Firefox(options=options, service=service)
     else:
